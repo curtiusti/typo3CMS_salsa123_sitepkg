@@ -1,0 +1,114 @@
+###########################
+#### OPENSTREETMAP OSM ####
+###########################
+
+plugin.tx_odsosm_pi1 {
+    # Map dimensions
+    width = 100%
+    height = 500px
+
+    # JavaScript library (leaflet is modern and lightweight)
+    library = leaflet
+
+    # Map layer (1 = Mapnik standard OSM tiles)
+    layer = 1
+
+    # Show map even without markers
+    no_marker = 1
+
+    # Popup behavior: 0=No, 1=Click, 2=Hover
+    show_popups = 2
+
+    # Show scale bar
+    show_scalebar = 1
+
+    # Marker clustering for many points
+    cluster = 1
+    cluster_radius = 80
+
+    # Custom marker icon for tt_address
+    icon {
+        tt_address = TEXT
+        tt_address {
+            value = <i class="fa-solid fa-location-dot"></i>
+            size_x = 30
+            size_y = 30
+            offset_x = 15
+            offset_y = 30
+        }
+    }
+
+    # Custom popup content for tt_address records
+    popup {
+        tt_address = COA
+        tt_address {
+            # Display image
+            10 = FILES
+            10 {
+                references {
+                    table = tt_address
+                    fieldName = image
+                }
+                renderObj = IMAGE
+                renderObj {
+                    file.import.data = file:current:uid
+                    file.treatIdAsReference = 1
+                    file.width = 150c
+                    file.height = 150c
+                    altText.data = file:current:alternative
+                    titleText.data = file:current:title
+                }
+            }
+
+            # Display name as heading
+            20 = TEXT
+            20 {
+                field = name
+                wrap = <h3 class="mb-2 text-lg text-gray-800 border-b-2 border-red-500 pb-1">|</h3>
+            }
+
+            # Display address
+            30 = COA
+            30 {
+                wrap = <div class="mb-2 text-gray-600">|</div>
+
+                10 = TEXT
+                10 {
+                    field = address
+                    wrap = <p class="m-0 leading-snug">|</p>
+                    required = 1
+                }
+
+                20 = TEXT
+                20 {
+                    dataWrap = <p class="m-0 leading-snug">{field:zip} {field:city}</p>
+                }
+            }
+
+            # Display description
+            40 = TEXT
+            40 {
+                field = description
+                stdWrap.parseFunc < lib.parseFunc_RTE
+                wrap = <div class="mb-2 text-sm leading-relaxed">|</div>
+                required = 1
+            }
+
+            # Display phone
+            50 = TEXT
+            50 {
+                field = phone
+                wrap = <p class="my-1 text-sm"><i class="fa-solid fa-phone"></i>|</p>
+                required = 1
+            }
+
+            # Display email as link
+            60 = TEXT
+            60 {
+                field = email
+                wrap = <p class="my-1 text-sm"><i class="fa-solid fa-envelope"></i></i>|</p>
+                required = 1
+            }
+        }
+    }
+}

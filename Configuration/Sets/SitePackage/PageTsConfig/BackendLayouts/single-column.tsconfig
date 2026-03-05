@@ -1,0 +1,32 @@
+#
+# BACKENDLAYOUT: SINGLE COLUMN
+# Full-width main content only
+#
+mod {
+    web_layout {
+        BackendLayouts {
+            single-column {
+                title = Single Column Layout
+                config {
+                    backend_layout {
+                        colCount = 1
+                        rowCount = 1
+                        rows {
+                            1 {
+                                columns {
+                                    1 {
+                                        name = Main Content
+                                        colPos = 0
+                                        identifier = main
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                icon = EXT:salsa123_cms/Resources/Public/Icons/1column.svg
+                
+            }
+        }
+    }
+}

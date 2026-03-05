@@ -1,0 +1,23 @@
+{
+    "name": "salsa123-inc/salsa123_cms",
+    "type": "typo3-cms-extension",
+    "description": "CMS project by T. Curtius at Hochschule Emden Leer about a fictional salsa academy",
+    "homepage": "https://srv052.online-hs-el.de/",
+    "license": ["GPL-2.0-or-later"],
+    "keywords": ["TYPO3 CMS"],
+    "require": {
+        "typo3/cms-core": "^13.4",
+        "typo3/cms-rte-ckeditor": "^13.4",
+        "typo3/cms-fluid-styled-content": "^13.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Salsa123Inc\\Salsa123Cms\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "salsa123_cms"
+        }
+    }
+}

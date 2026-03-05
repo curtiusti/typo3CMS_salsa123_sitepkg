@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="45" viewBox="0 0 32 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Marker pin shape -->
+  <path d="M16 0C7.163 0 0 7.163 0 16C0 24.837 16 45 16 45C16 45 32 24.837 32 16C32 7.163 24.837 0 16 0Z" fill="#DC3545"/>
+
+  <!-- Inner circle (white) -->
+  <circle cx="16" cy="16" r="8" fill="white"/>
+
+  <!-- Address icon (house) -->
+  <path d="M16 10L11 14V19H13V16H19V19H21V14L16 10Z" fill="#DC3545"/>
+
+  <!-- Shadow effect -->
+  <ellipse cx="16" cy="43" rx="6" ry="2" fill="black" opacity="0.3"/>
+</svg>

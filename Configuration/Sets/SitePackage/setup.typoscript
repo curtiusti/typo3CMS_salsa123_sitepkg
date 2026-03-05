@@ -1,0 +1,5 @@
+# Import ods_osm base configuration
+@import 'EXT:ods_osm/Configuration/TypoScript/setup.typoscript'
+
+# Import site package TypoScript
+@import './TypoScript/'

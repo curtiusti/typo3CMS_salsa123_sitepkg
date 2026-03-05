@@ -1,0 +1,14 @@
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <f:render partial="Header" arguments="{_all}" />
+
+    <f:if condition="{data.bodytext}">
+        <div class="mb-6">
+            <f:format.html>{data.bodytext}</f:format.html>
+        </div>
+    </f:if>
+
+    <f:render partial="Gallery" arguments="{_all}" />
+
+</f:section>

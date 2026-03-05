@@ -1,0 +1,36 @@
+#
+# BACKENDLAYOUT: STANDARD (2-Column Layout)
+# Main Content | Sidebar
+#
+mod {
+    web_layout {
+        BackendLayouts {
+            standard {
+                title = LLL:EXT:salsa123_cms/Resources/Private/Language/locallang_be.xlf:backend_layout.standard
+                config {
+                    backend_layout {
+                        colCount = 2
+                        rowCount = 1
+                        rows {
+                            1 {
+                                columns {
+                                    1 {
+                                        name = Main Content
+                                        colPos = 0
+                                        identifier = main
+                                    }
+                                    2 {
+                                        name = Sidebar
+                                        colPos = 1
+                                        identifier = sidebar
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                icon = EXT:salsa123_cms/Resources/Public/Icons/2column.svg
+            }
+        }
+    }
+}

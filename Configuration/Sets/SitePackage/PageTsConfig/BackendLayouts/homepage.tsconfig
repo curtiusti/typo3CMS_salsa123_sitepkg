@@ -1,0 +1,41 @@
+#
+# BACKENDLAYOUT: HOMEPAGE (3-Column Layout)
+# Left: Info/Navigation | Center: Main Content | Right: Login/User Info
+#
+mod {
+    web_layout {
+        BackendLayouts {
+            homepage {
+                title = LLL:EXT:salsa123_cms/Resources/Private/Language/locallang_be.xlf:backend_layout.homepage
+                config {
+                    backend_layout {
+                        colCount = 3
+                        rowCount = 1
+                        rows {
+                            1 {
+                                columns {
+                                    1 {
+                                        name = Left Sidebar (Info)
+                                        colPos = 0
+                                        identifier = left
+                                    }
+                                    2 {
+                                        name = Main Content
+                                        colPos = 1
+                                        identifier = main
+                                    }
+                                    3 {
+                                        name = Right Sidebar (Login/User)
+                                        colPos = 2
+                                        identifier = right
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                icon = EXT:salsa123_cms/Resources/Public/Icons/3column.svg
+            }
+        }
+    }
+}

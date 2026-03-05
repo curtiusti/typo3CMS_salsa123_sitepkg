@@ -1,0 +1,5 @@
+name: salsa123-inc/salsa123-cms
+label: 'Salsa 123 CMS'
+dependencies:
+  - typo3/fluid-styled-content
+  - typo3/fluid-styled-content-css

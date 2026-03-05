@@ -1,0 +1,93 @@
+<nav class="bg-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-4">
+        <!--Logo-->
+        <div class="flex space-x-7">
+            <div>
+                <a href="/" class="flex items-center py-4 px-2">
+                    <img class="h-8 w-8 mr-2" src="/fileadmin/user_upload/salsera_red.png" alt="Salsa Un Dos Tres Logo">
+                    <span class="font-semibold text-red-800 text-lg">Salsa Un Dos Tres</span>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-1">
+                <f:for each="{mainnavigation}" as="navItem">
+                    <div class="relative group">
+                        <f:if condition="{navItem.children}">
+                            <f:then>
+                                <!-- Menu item with dropdown -->
+                                <a href="{navItem.link}" class="py-4 px-3 text-gray-500 font-semibold hover:text-red-800 transition duration-300 {f:if(condition: navItem.active, then: 'text-red-800 border-b-4 border-red-800')} flex items-center">
+                                    {navItem.title}
+                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </a>
+                                <!-- Second level dropdown (red background, white text) - appears on hover -->
+                                <div class="hidden group-hover:block absolute left-0 mt-0 w-56 bg-red-600 shadow-lg z-50">
+                                    <f:for each="{navItem.children}" as="subMenu">
+                                        <div class="relative group/submenu">
+                                            <f:if condition="{subMenu.children}">
+                                                <f:then>
+                                                    <!-- Submenu item with third level -->
+                                                    <a href="{subMenu.link}" class="block px-4 py-3 text-white hover:bg-red-700 transition duration-200 flex items-center justify-between">
+                                                        {subMenu.title}
+                                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                                        </svg>
+                                                    </a>
+                                                    <!-- Third level flyout (appears on hover) -->
+                                                    <div class="hidden group-hover/submenu:block absolute left-full top-0 w-56 bg-red-600 shadow-lg">
+                                                        <f:for each="{subMenu.children}" as="subMenuChoice">
+                                                            <a href="{subMenuChoice.link}" class="block px-4 py-3 text-white hover:bg-red-700 transition duration-200">
+                                                                {subMenuChoice.title}
+                                                            </a>
+                                                        </f:for>
+                                                    </div>
+                                                </f:then>
+                                                <f:else>
+                                                    <!-- Submenu item without third level -->
+                                                    <a href="{subMenu.link}" class="block px-4 py-3 text-white hover:bg-red-700 transition duration-200">
+                                                        {subMenu.title}
+                                                    </a>
+                                                </f:else>
+                                            </f:if>
+                                        </div>
+                                    </f:for>
+                                </div>
+                            </f:then>
+                            <f:else>
+                                <!-- Regular menu item without dropdown -->
+                                <a href="{navItem.link}" class="py-4 px-3 text-gray-500 font-semibold hover:text-red-800 transition duration-300 {f:if(condition: navItem.active, then: 'text-red-800 border-b-4 border-red-800')}">
+                                    {navItem.title}
+                                </a>
+                            </f:else>
+                        </f:if>
+                    </div>
+                </f:for>
+            </div>
+        </div>
+
+
+        <!--Mobile menu button-->
+        <div class="md:hidden flex items-center">
+            <button class="outline-none mobile-menu-button">
+                <svg class="w-6 h-6 text-gray-500 hover:text-red-800" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M4 6h16M4 12h16M4 18h16">
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="hidden mobile-menu">
+            <ul class="">
+                <f:for each="{mainnavigation}" as="navItem">
+                    <li class="{f:if(condition: navItem.active, then: 'active')}">
+                        <a href="{navItem.link}"
+                            class="block text-sm px-2 py-4 hover:bg-red-800 transition duration-300 {f:if(condition: navItem.active, then: 'bg-red-800 text-white', else: 'text-gray-500')}">
+                            {navItem.title}
+                        </a>
+                    </li>
+                </f:for>
+            </ul>
+        </div>
+    </div>
+</nav>

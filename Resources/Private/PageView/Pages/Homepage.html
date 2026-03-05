@@ -1,0 +1,23 @@
+<f:layout name="Default" />
+<f:section name="Main">
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+            <!-- Left Sidebar: Information/Quick Links -->
+            <aside class="lg:col-span-3 space-y-6 bg-red-100 rounded-lg border-b py-2 px-4">
+                <f:render partial="Content" arguments="{records: content.left.records}" />
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="lg:col-span-6 space-y-6">
+                <f:render partial="Content" arguments="{records: content.main.records}" />
+            </main>
+
+            <!-- Right Sidebar: Login/User Information -->
+            <aside class="lg:col-span-3 space-y-6 bg-grey-800 rounded-lg border-b py-2 px-4">
+                <f:render partial="Content" arguments="{records: content.right.records}" />
+            </aside>
+
+        </div>
+    </div>
+</f:section>

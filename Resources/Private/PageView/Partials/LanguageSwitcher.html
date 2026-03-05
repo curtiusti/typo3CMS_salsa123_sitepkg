@@ -1,0 +1,32 @@
+<nav class="flex items-center" aria-label="Language Navigation">
+    <ul class="flex list-none m-0 p-0 gap-4 md:gap-4 gap-2">
+        <f:for each="{languageMenu}" as="language">
+            <li class="flex items-center {f:if(condition: language.active, then: 'active')} {f:if(condition: language.available, else: 'unavailable')}">
+                <f:if condition="{language.available}">
+                    <f:then>
+                        <f:if condition="{language.active}">
+                            <f:then>
+                                <span class="bg-red-800 text-white px-3 py-1 rounded" aria-current="true">
+                                    {language.navigationTitle}
+                                </span>
+                            </f:then>
+                            <f:else>
+                                <f:link.page pageUid="{data.uid}"
+                                             language="{language.languageId}"
+                                             class="text-gray-700 no-underline px-3 py-1 rounded transition-all duration-300 text-sm hover:bg-gray-100 hover:text-gray-900"
+                                             title="Switch to {language.navigationTitle}">
+                                    <span class="language-title">{language.navigationTitle}</span>
+                                </f:link.page>
+                            </f:else>
+                        </f:if>
+                    </f:then>
+                    <f:else>
+                        <span class="language-title disabled" title="Not available in {language.navigationTitle}">
+                            {language.navigationTitle}
+                        </span>
+                    </f:else>
+                </f:if>
+            </li>
+        </f:for>
+    </ul>
+</nav>

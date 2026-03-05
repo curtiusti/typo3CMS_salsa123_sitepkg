@@ -1,0 +1,22 @@
+<body class="bg-gray-50 min-h-screen flex flex-col w-full">
+    <header>
+        <!-- language switch meta navigation -->
+        <div class="bg-gray-50 border-b border-gray-300 py-2">
+            <div class="max-w-7xl mx-auto px-4 flex justify-end">
+                <f:render partial="LanguageSwitcher" arguments="{languageMenu: languageMenu, data: data}" />
+            </div>
+        </div>
+        <!-- navbar -->
+        <f:render partial="Navbar" arguments="{mainnavigation: mainnavigation}" />
+    </header>
+
+    <main class="flex-grow">
+        <f:render section="Main" />
+    </main>
+    <!--footer-->
+    <footer class="bg-red-800 text-white py-8 mt-12">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p>&copy; 2026 Salsa Un Dos Tres. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+</body>

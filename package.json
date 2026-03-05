@@ -1,0 +1,14 @@
+{
+  "name": "salsa123_cms",
+  "version": "1.0.0",
+  "description": "TYPO3 site package for Salsa Un Dos Tres academy",
+  "private": true,
+  "scripts": {
+    "dev": "tailwindcss -i Resources/Private/Css/input.css -o Resources/Public/Css/layout.css --watch",
+    "build": "tailwindcss -i Resources/Private/Css/input.css -o Resources/Public/Css/layout.css --minify",
+    "build:dev": "tailwindcss -i Resources/Private/Css/input.css -o Resources/Public/Css/layout.css"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}

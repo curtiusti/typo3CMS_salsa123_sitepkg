@@ -1,0 +1,6 @@
+# Override felogin templates with custom Tailwind CSS styled templates
+plugin.tx_felogin_login {
+    view {
+        templateRootPaths.100 = EXT:salsa123_cms/Resources/Private/Templates/FrontendLogin/
+    }
+}

@@ -1,0 +1,29 @@
+# Node.js dependencies
+node_modules/
+
+# NPM files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# TYPO3 runtime files (not part of sitepackage)
+*.log
+var/
+typo3temp/
+.php_cs.cache
+
+# Build artifacts that can be regenerated
+# Note: Keep the production CSS in Resources/Public/Css/ for portfolio showcase

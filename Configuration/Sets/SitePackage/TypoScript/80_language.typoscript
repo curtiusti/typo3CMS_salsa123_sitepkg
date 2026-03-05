@@ -1,0 +1,62 @@
+###########################
+#### LANGUAGE SWITCHER ####
+###########################
+
+# Language menu object
+lib.languageMenu = LANGUAGEMENU
+lib.languageMenu {
+    # Available languages from site configuration
+    languages = auto
+
+    # Wrap the entire menu
+    wrap = <ul class="language-menu">|</ul>
+
+    # Normal state (link to other language)
+    1 = TMENUITEM
+    1 {
+        NO = 1
+        NO {
+            # Build language link
+            allWrap = <li class="language-item">|</li>
+            stdWrap.typolink {
+                parameter.data = page:uid
+                additionalParams = &L={field:languageId}
+                additionalParams.insertData = 1
+                title.data = field:navigationTitle
+            }
+            # Display language title
+            doNotLinkIt = 0
+            stdWrap.cObject = TEXT
+            stdWrap.cObject {
+                data = field:navigationTitle
+                wrap = <span class="font-semibold text-white px-3 py-1">|</span>
+            }
+        }
+
+        # Active language state (current language)
+        ACT = 1
+        ACT < .NO
+        ACT {
+            allWrap = <li class="bg-red-500 text-white px-3 py-1 rounded">|</li>
+            doNotLinkIt = 1
+            stdWrap.cObject = TEXT
+            stdWrap.cObject {
+                data = field:navigationTitle
+                wrap = <span class="bg-red-500 text-white px-3 py-1 rounded">|</span>
+            }
+        }
+
+        # Language not available (no translation exists)
+        USERDEF1 = 1
+        USERDEF1 < .NO
+        USERDEF1 {
+            allWrap = <li class="text-gray-500 opacity-50 cursor-not-allowed px-3 py-1">|</li>
+            doNotLinkIt = 1
+            stdWrap.cObject = TEXT
+            stdWrap.cObject {
+                data = field:navigationTitle
+                wrap = <span class="text-gray-500 opacity-50 cursor-not-allowed px-3 py-1">|</span>
+            }
+        }
+    }
+}

@@ -1,0 +1,144 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:section name="Main">
+    <div class="max-w-md mx-auto p-6">
+
+        <div class="bg-white shadow-lg rounded-lg p-8">
+
+            <f:if condition="{action} == 'login'">
+                <f:then>
+                    {f:comment}Login Form{/f:comment}
+
+                    <f:if condition="{messageKey}">
+                        <div class="mb-6 p-4 rounded-lg bg-red-50 border border-red-200">
+                            <p class="text-red-800 text-sm">
+                                <f:translate key="LLL:EXT:felogin/Resources/Private/Language/locallang.xlf:{messageKey}" />
+                            </p>
+                        </div>
+                    </f:if>
+
+                    <form method="post" action="{actionUri}" name="loginform" class="space-y-6">
+
+                        <div class="mb-6">
+                            <label for="user" class="block text-sm font-semibold text-gray-700 mb-2">
+                                <f:translate key="LLL:EXT:felogin/Resources/Private/Language/locallang.xlf:username" default="Benutzername" />
+                                <span class="text-red-600">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                id="user"
+                                name="user"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition"
+                                placeholder="Benutzername"
+                                required
+                                autocomplete="username"
+                            />
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="pass" class="block text-sm font-semibold text-gray-700 mb-2">
+                                <f:translate key="LLL:EXT:felogin/Resources/Private/Language/locallang.xlf:password" default="Passwort" />
+                                <span class="text-red-600">*</span>
+                            </label>
+                            <div class="relative">
+                                <input
+                                    type="password"
+                                    id="pass"
+                                    name="pass"
+                                    class="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition"
+                                    placeholder="••••••••"
+                                    required
+                                    autocomplete="current-password"
+                                />
+                                <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 transition" onclick="togglePasswordVisibility()">
+                                    <span id="show-password-icon">👁️</span>
+                                    <span id="hide-password-icon" class="hidden">👁️‍🗨️</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <f:if condition="{showPermaLogin}">
+                            <div class="flex items-center mb-6">
+                                <input
+                                    type="checkbox"
+                                    id="permalogin"
+                                    name="permalogin"
+                                    value="1"
+                                    class="w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-600"
+                                />
+                                <label for="permalogin" class="ml-2 text-sm text-gray-700">
+                                    <f:translate key="LLL:EXT:felogin/Resources/Private/Language/locallang.xlf:permalogin" default="Angemeldet bleiben" />
+                                </label>
+                            </div>
+                        </f:if>
+
+                        <input type="hidden" name="logintype" value="login" />
+                        <input type="hidden" name="pid" value="{storagePid}" />
+                        <f:if condition="{redirectUrl}">
+                            <input type="hidden" name="redirect_url" value="{redirectUrl}" />
+                        </f:if>
+
+                        <div class="mb-6">
+                            <button
+                                type="submit"
+                                name="submit"
+                                class="w-full px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer"
+                            >
+                                <f:translate key="LLL:EXT:felogin/Resources/Private/Language/locallang.xlf:login" default="Anmelden" />
+                            </button>
+                        </div>
+
+                        <f:if condition="{showForgotPassword}">
+                            <div class="border-t border-gray-200 pt-4 space-y-3 text-center">
+                                <f:link.page pageUid="{forgotPasswordPid}" class="block text-sm text-red-600 hover:text-red-700 hover:underline transition">
+                                    <f:translate key="LLL:EXT:felogin/Resources/Private/Language/locallang.xlf:forgot_password" default="Passwort vergessen?" />
+                                </f:link.page>
+                            </div>
+                        </f:if>
+
+                    </form>
+                </f:then>
+                <f:else>
+                    {f:comment}Logout View{/f:comment}
+                    <div class="text-center">
+                        <p class="mb-6 text-gray-700">
+                            <f:translate key="LLL:EXT:felogin/Resources/Private/Language/locallang.xlf:welcome_message" />
+                            <strong>{userInfo.username}</strong>
+                        </p>
+                        <f:form action="logout" class="space-y-4">
+                            <button
+                                type="submit"
+                                class="w-full px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer"
+                            >
+                                <f:translate key="LLL:EXT:felogin/Resources/Private/Language/locallang.xlf:logout" default="Abmelden" />
+                            </button>
+                        </f:form>
+                    </div>
+                </f:else>
+            </f:if>
+
+        </div>
+    </div>
+
+    <script>
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('pass');
+            const showIcon = document.getElementById('show-password-icon');
+            const hideIcon = document.getElementById('hide-password-icon');
+
+            if (passwordInput && showIcon && hideIcon) {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    showIcon.classList.add('hidden');
+                    hideIcon.classList.remove('hidden');
+                } else {
+                    passwordInput.type = 'password';
+                    showIcon.classList.remove('hidden');
+                    hideIcon.classList.add('hidden');
+                }
+            }
+        }
+    </script>
+</f:section>
+
+</html>

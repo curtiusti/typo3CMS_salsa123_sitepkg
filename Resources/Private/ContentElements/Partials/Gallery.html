@@ -1,0 +1,18 @@
+<f:if condition="{gallery.rows}">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <f:for each="{gallery.rows}" as="row">
+            <f:for each="{row.columns}" as="column">
+                <f:if condition="{column.media}">
+                    <figure class="overflow-hidden rounded-lg shadow-md">
+                        <f:image image="{column.media}" alt="{column.media.alternative}" title="{column.media.title}" class="w-full h-full object-cover" />
+                        <f:if condition="{column.media.description}">
+                            <figcaption class="p-3 text-sm text-gray-600 bg-gray-50">
+                                {column.media.description}
+                            </figcaption>
+                        </f:if>
+                    </figure>
+                </f:if>
+            </f:for>
+        </f:for>
+    </div>
+</f:if>
