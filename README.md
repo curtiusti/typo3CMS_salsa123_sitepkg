@@ -29,7 +29,7 @@ The site is no longer live, but screenshots of the local version are available b
 
 ## Features
 
-### 🧭 Three-level Navigation
+### Three-level Navigation
 A fully custom navigation built with TypoScript, Fluid HTML and TailwindCSS, featuring:
 - Main menu and submenus
 - Hoverable third-level dropdown menus
@@ -37,22 +37,25 @@ A fully custom navigation built with TypoScript, Fluid HTML and TailwindCSS, fea
 
 > The language toggle is implemented as a custom Fluid partial, wired to TYPO3's built-in language handling.
 
-*[screenshot — navbar]*
-*[screenshot — third level hover]*
+<img width="1190" height="110" alt="image" src="https://github.com/user-attachments/assets/b9c6b55a-caae-4ca2-be11-7f788220103e" />
+
+<img width="753" height="187" alt="image" src="https://github.com/user-attachments/assets/ee42b6d6-d9b2-437f-89f5-56fdcd5c3541" />
 
 ---
 
-### 🗺️ OpenStreetMap Integration
+### OpenStreetMap Integration
 Embedded on the *About Us* page via a TYPO3 extension, configured through TypoScript to display the school's location without relying on proprietary mapping APIs.
 
-*[screenshot — OSM]*
+<img width="1208" height="905" alt="image" src="https://github.com/user-attachments/assets/a01e29d2-0779-4970-b0cc-d8c42108d284" />
+
+
 
 ---
 
-### 🖼️ Custom Image Display
+### Custom Image Display
 All image rendering is handled through custom Fluid templates, giving full control over layout and presentation across different page types.
 
-*[screenshot — image display]*
+<img width="907" height="867" alt="image" src="https://github.com/user-attachments/assets/03765492-80fd-4270-8b61-3ef8776eac76" />
 
 ---
 
@@ -84,9 +87,3 @@ packages/salsa_sitepackage/
 - Integrating a TailwindCSS workflow in a CMS environment
 - Handling multilingual content and routing in TYPO3's backend
 - Configuring third-party extensions (OSM) via TypoScript
-
----
-
-## Context
-
-University project — *Medieninformatik Online*, Hochschule Emden/Leer
