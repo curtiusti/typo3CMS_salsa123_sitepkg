@@ -19,6 +19,7 @@ The site is no longer live, but screenshots of the local version are available b
 | Layer | Technology |
 |---|---|
 | CMS | TYPO3 v13.4 |
+| Local development | DDEV (Dockers) + WSL |
 | Templating | Fluid HTML |
 | CMS Configuration | TypoScript |
 | Styling | TailwindCSS (built locally, production-ready CSS) |
